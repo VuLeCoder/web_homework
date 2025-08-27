@@ -20,8 +20,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapControllerRoute(
-    name: "LamGiDo",
-    pattern: "{controller=DoSomeThing}/{action=Index}/{id?}");
-
 app.Run();
