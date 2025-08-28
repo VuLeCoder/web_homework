@@ -17,5 +17,16 @@ namespace MyWeb.Controllers
             var product = ProductStorage.getProductById(id);
             return View(product);
         }
+
+        public IActionResult AddToCart(int id)
+        {
+            var products = ProductStorage.getListProducts();
+            var product = products.FirstOrDefault(p => p.Id == id);
+            if (product != null)
+            {
+                CartStorage.AddToCart(product);
+            }
+            return RedirectToAction("Index", "Cart");
+        }
     }
 }
