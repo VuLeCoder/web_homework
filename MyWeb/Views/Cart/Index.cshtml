@@ -1,0 +1,24 @@
+﻿@model List<MyWeb.Models.Product>
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giỏ hàng của bạn</h2>
+@if (Model.Count == 0)
+{
+    <p>Giỏ hàng đang trống.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>@item.Name - @item.Price.ToString("N0") đ</span>
+                <a href="/Cart/Remove/@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+            </li>
+        }
+    </ul>
+}
+<a href="/Home" class="btn btn-primary mt-3">Tiếp tục mua sắm</a>
