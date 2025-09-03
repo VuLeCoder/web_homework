@@ -1,0 +1,17 @@
+﻿@model List<string>
+
+<div class="card mb-3">
+    <div class="card-header bg-primary text-white">
+        Danh mục sản phẩm
+    </div>
+    <ul class="list-group list-group-flush">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">@item</li>
+        }
+    </ul>
+</div>
+
+<div class="card">
+    <img src="/images/banner.jpg" class="card-img-top" alt="Quảng cáo" />
+</div>
