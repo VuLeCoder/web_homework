@@ -16,14 +16,14 @@
                     Sản phẩm mới nhất
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-evenly">
                         @foreach (var p in Model)
                         {
-                            <div class="col-md-4 mb-3">
-                                <div class="card h-100 small-card">
-                                    <img src="@p.Image" class="card-img-top product-img" alt="@p.Name" />
-                                    <div class="card-body p-2">
-                                        <h6 class="card-title product-name">@p.Name</h6>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100">
+                                    <img src="@p.Image" class="card-img-top" alt="@p.Name" />
+                                    <div class="card-body">
+                                        <h6 class="card-title">@p.Name</h6>
                                     </div>
                                 </div>
                             </div>
@@ -32,6 +32,7 @@
                 </div>
             </div>
 
+            @await Component.InvokeAsync("HotProducts")
         </div>
     </div>
 </div>
