@@ -1,0 +1,22 @@
+﻿@model List<Product>
+
+<div class="card mb-3">
+    <div class="card-header bg-primary text-white">
+        Sản phẩm bán chạy nhất
+    </div>
+    <div class="card-body">
+        <div class="row justify-content-evenly">
+            @foreach (var p in Model)
+            {
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100">
+                        <img src="@p.Image" class="card-img-top" alt="@p.Name" />
+                        <div class="card-body">
+                            <h6 class="card-title">@p.Name</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
