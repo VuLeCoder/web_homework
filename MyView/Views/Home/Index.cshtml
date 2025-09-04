@@ -3,10 +3,17 @@
 <div class="container mt-3 pb-xxl-5">
     <div class="row">
         <div class="col-md-3">
-            @Html.Partial("_CategoryPartial", new List<string>{
-            "Áo dài","Áo đông","Túi xách","Đồng hồ","Ví da",
-                        "Thắt lưng da","Tủ lạnh","Tivi","Quạt điện","Lò sưởi"
-                        })
+            <div class="card mb-3">
+                <button id="loadCategories" class="card-header bg-primary text-white">
+                    Danh mục sản phẩm
+                </button>
+
+                <ul id="data-loaded" class="list-group list-group-flush"></ul>
+            </div>
+            
+            <div class="card">
+                <img src="/images/banner.jpg" class="card-img-top p-4" alt="Quảng cáo" />
+            </div>
         </div>
 
         <div class="col-md-9">
@@ -36,3 +43,11 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $('#loadCategories').click(function () {
+            $('#data-loaded').load("/Home/ProductCategories")
+        })
+    </script>
+}
