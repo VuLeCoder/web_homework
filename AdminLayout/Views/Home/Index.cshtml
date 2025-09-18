@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<section class="dashboard-grid">
+    <div class="left-group">
+        @Html.Partial("_DashboardCards")
+        @Html.Partial("_SalesChart")
+    </div>
+
+    @Html.Partial("_TargetCard")
+</section>
