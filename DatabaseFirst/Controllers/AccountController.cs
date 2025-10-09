@@ -65,7 +65,7 @@ namespace DatabaseFirst.Controllers
                 HttpContext.Session.SetString("Username", user.Username);
                 HttpContext.Session.SetString("FullName", user.FullName ?? "");
                 HttpContext.Session.SetString("IsAdmin", user.IsAdmin.ToString());
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Books");
             }
 
             ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu!";
