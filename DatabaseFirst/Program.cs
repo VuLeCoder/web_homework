@@ -1,9 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using DatabaseFirst.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// Database
+var str = "BookStoreConnectionString";
+var connectionStr = builder.Configuration.GetConnectionString(str);
+builder.Services.AddDbContext<BookStoreContext>(x => x.UseSqlServer(connectionStr));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
