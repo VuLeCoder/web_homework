@@ -1,0 +1,18 @@
+﻿@model DatabaseFirst.Models.Category
+
+@{
+    ViewData["Title"] = "Sửa Thể loại";
+}
+
+<h2>Sửa Thể loại</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CategoryId" />
+    <div class="mb-3">
+        <label>Tên Thể loại</label>
+        <input asp-for="CategoryName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Cập nhật</button>
+    <a asp-action="Index" class="btn btn-secondary">Trở lại</a>
+</form>
