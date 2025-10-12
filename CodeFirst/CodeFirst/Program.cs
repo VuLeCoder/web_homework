@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using CodeFirst.Models.DBModels;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ShoppingCartContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ShoppingCartConnection")));
 
 var app = builder.Build();
 
