@@ -59,6 +59,14 @@ namespace CodeFirst.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,MaSanPham,TenSanPham,HinhAnh,SoLuong,DonGia,TrangThai,LoaiSanPhamId")] SanPham sanPham)
         {
+            //foreach (var state in ModelState)
+            //{
+            //    foreach (var error in state.Value.Errors)
+            //    {
+            //        Console.WriteLine($"Error in {state.Key}: {error.ErrorMessage}");
+            //    }
+            //}
+            ModelState.Remove("LoaiSanPham");
             if (ModelState.IsValid)
             {
                 _context.Add(sanPham);
@@ -98,6 +106,7 @@ namespace CodeFirst.Controllers
                 return NotFound();
             }
 
+            ModelState.Remove("LoaiSanPham");
             if (ModelState.IsValid)
             {
                 try
