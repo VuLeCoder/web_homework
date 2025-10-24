@@ -1,0 +1,42 @@
+﻿@model LePhamTheVu_231220962_de01.Models.lptvComputer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>lptvComputer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LePhamTheVuComName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LePhamTheVuComName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LePhamTheVuComPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LePhamTheVuComPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LePhamTheVuComImage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LePhamTheVuComImage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LePhamTheVuComStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LePhamTheVuComStatus)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.LePhamTheVuComId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
