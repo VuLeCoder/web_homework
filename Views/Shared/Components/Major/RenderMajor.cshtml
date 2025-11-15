@@ -1,0 +1,10 @@
+@model IEnumerable<Lab5.Models.Major>
+
+<ul class="list-group">
+    @foreach (var m in Model)
+    {
+        <li class="list-group-item" id="@m.MajorID" style="cursor:pointer">
+            @m.MajorName
+        </li>
+    }
+</ul>
