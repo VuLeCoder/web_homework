@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Test_210701.Models;
+
+public partial class Customer
+{
+    public int Id { get; set; }
+
+    public string Fullname { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string Password { get; set; } = null!;
+
+    public string RePassword { get; set; } = null!;
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+}
