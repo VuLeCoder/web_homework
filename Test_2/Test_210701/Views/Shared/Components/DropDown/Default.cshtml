@@ -1,0 +1,26 @@
+﻿@model List<Category>
+
+<style>
+	.dropdown{
+		display: flex;
+	}
+
+	.dropdown select {
+		float: right;
+	}
+
+	.dropdown p {
+		float: right;
+	}
+</style>
+
+<div class="dropdown">
+	<p> Filtering by category </p>
+	<select>
+		<option id=""> Tất cả </option>
+		@foreach(var c in Model)
+		{
+			<option id="@c.Id"> @c.NameVn </option>
+		}
+	</select>
+</div>
