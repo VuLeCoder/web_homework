@@ -7,15 +7,20 @@ namespace Test_210701.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ShopDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ShopDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View("Vuz_MainContent");
+            var query = _context.Products.Where(p => p.Available == true);
+
+            var productList = query.ToList();
+            return View("Vuz_MainContent", productList);
         }
 
         public IActionResult Privacy()
