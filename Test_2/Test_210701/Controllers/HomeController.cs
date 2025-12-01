@@ -15,7 +15,7 @@ namespace Test_210701.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Vuz_MainContent");
         }
 
         public IActionResult Privacy()
