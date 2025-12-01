@@ -15,9 +15,14 @@ namespace Test_1_12.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? Id)
         {
-            var productList = _context.Products.Where(p => p.Available == true && p.UnitPrice <= 1000).ToList();
+            var query = _context.Products.Where(p => p.Available == true && p.UnitPrice <= 1000).AsQueryable();
+            if(Id is not null)
+            {
+                query = query.Where(p => p.CategoryId == Id);
+            }
+            var productList = query.ToList();
             return View("Vuz_MainContent", productList);
         }
 

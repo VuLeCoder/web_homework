@@ -3,12 +3,12 @@
 <div class="categories">
 	<h2> @ViewBag.MyName </h2>
 
-	<ul class="cate">
+	<ul id="categories" class="cate">
 
 		@foreach(var c in Model)
 		{
 			<li>
-				<a href="#">
+				<a id="@c.Id" href="#">
 					<i class="fa fa-arrow-right" aria-hidden="true"></i>
 					@c.Name
 				</a>
@@ -16,3 +16,21 @@
 		}
 	</ul>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$("#categories a").on("click", function(e){
+		e.preventDefault();
+		var id = $(this).attr("id");
+		alert(id);
+
+		$.ajax({
+			url: "@Url.Action("Index", "Home")",
+			type: "GET",
+			data: {Id : id},
+			success: function(response) {
+				$("body").html(response)
+			}
+		})
+	})
+</script>
