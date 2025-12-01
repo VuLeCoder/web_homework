@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Test_1_12.Models;
 
 public partial class Product
 {
+    [RegularExpression(@"^[A-Z]{2}[0-9]{4}$", ErrorMessage = "Mã hàng phải có dạng XX0000")]
     public string Id { get; set; } = null!;
 
     public string Name { get; set; } = null!;
