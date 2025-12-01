@@ -1,0 +1,18 @@
+﻿@model List<Category>
+
+<div class="categories">
+	<h2> @ViewBag.MyName </h2>
+
+	<ul class="cate">
+
+		@foreach(var c in Model)
+		{
+			<li>
+				<a href="#">
+					<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					@c.Name
+				</a>
+			</li>
+		}
+	</ul>
+</div>

@@ -1,19 +1,12 @@
 ﻿<div class="products">
 	<div class="container">
+
 		<!-- left categories -->
 		<div class="col-md-4 products-left">
-			<div class="categories">
-				<h2>Categories</h2>
-				<ul class="cate">
-					<li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Fruits And Vegetables</a></li>
-
-					<li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>Grocery & Staples</a></li>
-
-					<li><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i>PersonalCare</a></li>
-				</ul>
-			</div>
+			@await Component.InvokeAsync("leftCategories")
 		</div>
 		<!-- /left categories -->
+
 		<!-- right products grid -->
 		<div class="col-md-8 products-right">
 			<div class="agile_top_brands_grids">
