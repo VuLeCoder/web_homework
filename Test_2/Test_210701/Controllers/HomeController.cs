@@ -15,9 +15,13 @@ namespace Test_210701.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? categoryId)
         {
             var query = _context.Products.Where(p => p.Available == true);
+            if(categoryId is not null)
+            {
+                query = query.Where(p => p.CategoryId == categoryId);
+            }
 
             var productList = query.ToList();
             return View("Vuz_MainContent", productList);

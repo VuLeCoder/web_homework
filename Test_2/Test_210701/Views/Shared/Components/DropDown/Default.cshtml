@@ -17,10 +17,29 @@
 <div class="dropdown">
 	<p> Filtering by category </p>
 	<select>
-		<option id=""> Tất cả </option>
+		<option> Tất cả </option>
 		@foreach(var c in Model)
 		{
-			<option id="@c.Id"> @c.NameVn </option>
+			<option value="@c.Id"> @c.NameVn </option>
 		}
 	</select>
 </div>
+
+<script src="~/js/jquery-1.11.1.min.js"></script>
+<script>
+	$(".dropdown select").on("change", function(e){
+		e.preventDefault();
+
+		var Id = $(this).val();
+		alert(Id)
+
+		$.ajax({
+			url: "@Url.Action("Index", "Home")",
+			type: "GET",
+			data: {categoryId: Id},
+			success: function(response) {
+				$("body").html(response)
+			}
+		})
+	})
+</script>
